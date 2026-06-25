@@ -169,7 +169,7 @@ export default function Home() {
         <ScrollReveal delay={0.3} className="lg:col-span-1 flex flex-col gap-6 sticky top-8 self-start z-10">
           {/* Most Read Column */}
           <div className="soft-card p-5 flex flex-col shadow-sm">
-            <div className="flex items-center justify-between mb-4 border-b border-border-strong pb-4">
+            <div className="flex items-center justify-between mb-3 border-b border-border-strong pb-3">
               <h2 className="text-lg text-[#8AA0E5] font-display font-bold flex items-center gap-2">
                 Most Read
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-orange-400">
@@ -179,17 +179,17 @@ export default function Home() {
               </h2>
             </div>
             
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3">
               {mockMostRead.slice(0, 5).map((item) => (
-                <Link key={item.id} href={`/news/trending-${item.id}`} className="group flex items-start gap-4">
-                  <div className="text-3xl font-display font-black text-foreground/10 group-hover:text-[#8AA0E5]/40 transition-colors italic w-6 text-center">
+                <Link key={item.id} href={`/news/trending-${item.id}`} className="group flex items-center gap-3">
+                  <div className="text-2xl font-display font-black text-foreground/10 group-hover:text-[#8AA0E5]/40 transition-colors italic w-5 text-center">
                     {item.id}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-[14px] font-bold text-text-muted group-hover:text-foreground transition-colors line-clamp-2 leading-snug mb-1">
+                    <h3 className="text-[13px] font-bold text-text-muted group-hover:text-foreground transition-colors line-clamp-1 leading-snug mb-0.5">
                       {item.title}
                     </h3>
-                    <div className="text-[11px] text-text-dim font-medium uppercase tracking-wider">{item.views}</div>
+                    <div className="text-[10px] text-text-dim font-medium uppercase tracking-wider">{item.views}</div>
                   </div>
                 </Link>
               ))}
@@ -198,7 +198,7 @@ export default function Home() {
 
           {/* Press Release */}
           <div className="soft-card p-5 flex flex-col shadow-sm">
-            <div className="flex items-center justify-between mb-2 border-b border-border-strong pb-4">
+            <div className="flex items-center justify-between mb-2 border-b border-border-strong pb-3">
               <h2 className="text-lg text-[#8AA0E5] font-display font-bold flex items-center">
                 Press Release <span className="ml-2 text-[10px] bg-primary/10 text-primary-light px-2 py-0.5 rounded-full uppercase tracking-wider font-bold border border-primary/20">Sponsored</span>
               </h2>
@@ -206,14 +206,14 @@ export default function Home() {
             
             <div className="flex flex-col">
               {mockPressReleases.slice(0, 5).map((pr) => (
-                <Link key={pr.slug} href={`/press-release/${pr.slug}`} className="group flex gap-4 border-b border-border-light py-4 first:pt-4 last:border-0 last:pb-0 items-start">
-                  <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-border-strong relative">
+                <Link key={pr.slug} href={`/press-release/${pr.slug}`} className="group flex gap-3 border-b border-border-light py-2.5 first:pt-2 last:border-0 last:pb-0 items-center">
+                  <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-border-strong relative">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={pr.imageUrl} alt={pr.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" />
                   </div>
                   <div className="flex-1">
-                    <div className="text-[10px] text-text-muted mb-1.5 uppercase tracking-wider font-medium">{pr.date}</div>
-                    <h3 className="text-[13px] font-semibold text-foreground group-hover:text-[#8AA0E5] transition-colors line-clamp-2 leading-snug">
+                    <div className="text-[9px] text-text-muted mb-0.5 uppercase tracking-wider font-medium">{pr.date}</div>
+                    <h3 className="text-[12px] font-semibold text-foreground group-hover:text-[#8AA0E5] transition-colors line-clamp-2 leading-snug">
                       {pr.title}
                     </h3>
                   </div>
@@ -221,7 +221,7 @@ export default function Home() {
               ))}
             </div>
 
-            <Link href="/press-release" className="mt-4 text-center text-[13px] w-full bg-surface-hover hover:bg-[#8AA0E5]/15 py-3 rounded-xl transition-all duration-300 text-[#8AA0E5] hover:text-[#344A83] dark:hover:text-[#A8B8EF] font-bold block shadow-sm hover:shadow-md hover:shadow-[#8AA0E5]/20">
+            <Link href="/press-release" className="mt-3 text-center text-[12px] w-full bg-surface-hover hover:bg-[#8AA0E5]/15 py-2.5 rounded-xl transition-all duration-300 text-[#8AA0E5] hover:text-[#344A83] dark:hover:text-[#A8B8EF] font-bold block shadow-sm hover:shadow-md hover:shadow-[#8AA0E5]/20">
               All Press Releases
             </Link>
           </div>
