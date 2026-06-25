@@ -163,12 +163,41 @@ export default function Sidebar() {
       </div>
 
       {/* Bottom Section */}
-      <div className="px-6 flex flex-col gap-5 relative z-10 mt-2">
-        <div className="flex items-center justify-between px-3 mb-2">
+      <div className="px-6 flex flex-col gap-4 relative z-10 mt-2">
+        <div className="flex items-center justify-between px-3">
           <span className="text-xs font-semibold text-text-dim">Theme</span>
           <ThemeToggle />
         </div>
-        <Link href="/publishing" className="w-full relative overflow-hidden group bg-gradient-to-r from-[#8AA0E5] to-[#344A83] hover:from-[#A8B8EF] hover:to-[#6A85D3] border border-white/20 py-4 rounded-[24px] text-sm font-bold text-center text-white hover:-translate-y-0.5 shadow-[0_4px_15px_rgba(106,133,211,0.2)] hover:shadow-[0_6px_20px_rgba(106,133,211,0.3)] transition-all">
+
+        {/* Mock Login State Toggle (For Demo) */}
+        {activeMenu === "Demo" ? null : (
+          <div className="w-full relative group">
+            {/* User Profile Box */}
+            <div className="flex items-center justify-between p-3 bg-surface-hover rounded-[20px] border border-border-light cursor-pointer hover:border-[#8AA0E5]/50 hover:shadow-md hover:shadow-[#8AA0E5]/10 transition-all">
+              <div className="flex items-center gap-3 overflow-hidden">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#8AA0E5] to-[#344A83] p-[2px] shrink-0">
+                  <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=b6e3f4" alt="User Avatar" className="w-full h-full object-cover" />
+                  </div>
+                </div>
+                <div className="flex flex-col flex-1 overflow-hidden">
+                  <span className="text-[13px] font-bold text-foreground truncate">Alex Crypto</span>
+                  <div className="flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                    <span className="text-[10px] text-text-muted">Pro Member</span>
+                  </div>
+                </div>
+              </div>
+              <button className="p-1.5 text-text-muted hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors shrink-0" title="Log out">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        )}
+
+        <Link href="/publishing" className="w-full relative overflow-hidden group bg-gradient-to-r from-[#8AA0E5] to-[#344A83] hover:from-[#A8B8EF] hover:to-[#6A85D3] border border-white/20 py-3 rounded-[20px] text-sm font-bold text-center text-white hover:-translate-y-0.5 shadow-[0_4px_15px_rgba(106,133,211,0.2)] hover:shadow-[0_6px_20px_rgba(106,133,211,0.3)] transition-all">
           <span className="relative z-10 flex items-center justify-center gap-2">
             <span>+</span> GET PUBLISHING
           </span>
