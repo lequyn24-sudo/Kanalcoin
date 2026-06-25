@@ -63,10 +63,10 @@ export default function MarketcapCoinsSection() {
                   <td className="px-6 py-4 text-right text-text-muted hidden md:table-cell">
                     {coin.volume}
                   </td>
-                  <td className="px-6 py-4 text-center">
-                    <button className="px-4 py-1.5 rounded-full btn-primary text-xs">
+                  <td className="p-4 text-right">
+                    <a href="https://accounts.binance.com/register?ref=KANALCOIN" target="_blank" rel="noopener noreferrer" className="inline-block px-6 py-2 rounded-xl bg-surface-hover border border-border-light text-[#8AA0E5] font-bold text-sm hover:bg-gradient-to-r hover:from-[#8AA0E5] hover:to-[#344A83] hover:text-white transition-all shadow-sm hover:shadow-md">
                       Trade
-                    </button>
+                    </a>
                   </td>
                 </tr>
               ))}
