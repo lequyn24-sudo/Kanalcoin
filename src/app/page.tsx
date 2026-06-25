@@ -84,6 +84,18 @@ export default function Home() {
       date: "Oct 21, 2024",
       imageUrl: "https://images.unsplash.com/photo-1639762681485-074b7f4ec651?q=80&w=150&auto=format&fit=crop",
       slug: "binance-opens-traders-league"
+    },
+    {
+      title: "KanalCoin Partners with Major Exchange for Better Liquidity",
+      date: "Oct 20, 2024",
+      imageUrl: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=150&auto=format&fit=crop",
+      slug: "kanalcoin-partners-major-exchange"
+    },
+    {
+      title: "New Web3 Security Standard Adopted by Top Wallets",
+      date: "Oct 19, 2024",
+      imageUrl: "https://images.unsplash.com/photo-1622737133809-d95047b9e673?q=80&w=150&auto=format&fit=crop",
+      slug: "new-web3-security-standard"
     }
   ];
 
@@ -155,35 +167,6 @@ export default function Home() {
 
         {/* Right Sidebar */}
         <ScrollReveal delay={0.3} className="lg:col-span-1 flex flex-col gap-6 sticky top-8 self-start z-10">
-          <div className="soft-card p-5 flex flex-col shadow-sm">
-            <div className="flex items-center justify-between mb-2 border-b border-border-strong pb-4">
-              <h2 className="text-lg text-[#8AA0E5] font-display font-bold flex items-center">
-                Press Release <span className="ml-2 text-[10px] bg-primary/10 text-primary-light px-2 py-0.5 rounded-full uppercase tracking-wider font-bold border border-primary/20">Sponsored</span>
-              </h2>
-            </div>
-            
-            <div className="flex flex-col">
-              {mockPressReleases.slice(0, 3).map((pr) => (
-                <Link key={pr.slug} href={`/press-release/${pr.slug}`} className="group flex gap-4 border-b border-border-light py-4 first:pt-4 last:border-0 last:pb-0 items-start">
-                  <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-border-strong relative">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={pr.imageUrl} alt={pr.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-[10px] text-text-muted mb-1.5 uppercase tracking-wider font-medium">{pr.date}</div>
-                    <h3 className="text-[13px] font-semibold text-foreground group-hover:text-[#8AA0E5] transition-colors line-clamp-2 leading-snug">
-                      {pr.title}
-                    </h3>
-                  </div>
-                </Link>
-              ))}
-            </div>
-
-            <Link href="/press-release" className="mt-4 text-center text-[13px] w-full bg-surface-hover hover:bg-[#8AA0E5]/15 py-3 rounded-xl transition-all duration-300 text-[#8AA0E5] hover:text-[#344A83] dark:hover:text-[#A8B8EF] font-bold block shadow-sm hover:shadow-md hover:shadow-[#8AA0E5]/20">
-              All Press Releases
-            </Link>
-          </div>
-
           {/* Most Read Column */}
           <div className="soft-card p-5 flex flex-col shadow-sm">
             <div className="flex items-center justify-between mb-4 border-b border-border-strong pb-4">
@@ -211,6 +194,36 @@ export default function Home() {
                 </Link>
               ))}
             </div>
+          </div>
+
+          {/* Press Release */}
+          <div className="soft-card p-5 flex flex-col shadow-sm">
+            <div className="flex items-center justify-between mb-2 border-b border-border-strong pb-4">
+              <h2 className="text-lg text-[#8AA0E5] font-display font-bold flex items-center">
+                Press Release <span className="ml-2 text-[10px] bg-primary/10 text-primary-light px-2 py-0.5 rounded-full uppercase tracking-wider font-bold border border-primary/20">Sponsored</span>
+              </h2>
+            </div>
+            
+            <div className="flex flex-col">
+              {mockPressReleases.slice(0, 5).map((pr) => (
+                <Link key={pr.slug} href={`/press-release/${pr.slug}`} className="group flex gap-4 border-b border-border-light py-4 first:pt-4 last:border-0 last:pb-0 items-start">
+                  <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-border-strong relative">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={pr.imageUrl} alt={pr.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-[10px] text-text-muted mb-1.5 uppercase tracking-wider font-medium">{pr.date}</div>
+                    <h3 className="text-[13px] font-semibold text-foreground group-hover:text-[#8AA0E5] transition-colors line-clamp-2 leading-snug">
+                      {pr.title}
+                    </h3>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            <Link href="/press-release" className="mt-4 text-center text-[13px] w-full bg-surface-hover hover:bg-[#8AA0E5]/15 py-3 rounded-xl transition-all duration-300 text-[#8AA0E5] hover:text-[#344A83] dark:hover:text-[#A8B8EF] font-bold block shadow-sm hover:shadow-md hover:shadow-[#8AA0E5]/20">
+              All Press Releases
+            </Link>
           </div>
 
           {/* Quick Converter */}
