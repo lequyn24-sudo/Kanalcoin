@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 
 type MenuItem = {
@@ -46,6 +46,7 @@ export default function Sidebar() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     if (pathname === '/') {
@@ -206,7 +207,7 @@ export default function Sidebar() {
         ) : (
           <div className="w-full relative group">
             <button 
-              onClick={() => setIsLoggedIn(true)}
+              onClick={() => router.push('/login')}
               className="w-full flex items-center justify-center gap-2 p-3 bg-surface-hover rounded-[20px] border border-border-light hover:border-[#8AA0E5]/50 hover:bg-[#8AA0E5]/5 transition-all text-[13px] font-bold text-foreground"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-[#8AA0E5]">
