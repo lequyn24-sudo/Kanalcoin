@@ -1,6 +1,9 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 
 export default function MarketcapCoinsPage() {
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const mockCoins = [
     { rank: 1, name: "Bitcoin", symbol: "BTC", logoUrl: "https://cryptologos.cc/logos/bitcoin-btc-logo.png", price: "$68,420.50", change24h: "+2.4%", change7d: "+5.2%", marketCap: "$1.34T", volume24h: "$32.5B", sparklineColor: "text-green-400" },
     { rank: 2, name: "Ethereum", symbol: "ETH", logoUrl: "https://cryptologos.cc/logos/ethereum-eth-logo.png", price: "$3,842.10", change24h: "+1.8%", change7d: "-1.2%", marketCap: "$462.1B", volume24h: "$14.2B", sparklineColor: "text-green-400" },
@@ -30,16 +33,52 @@ export default function MarketcapCoinsPage() {
 
         {/* Filters & Actions */}
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex gap-2">
-            <button className="px-4 py-2 rounded-lg btn-primary text-sm flex items-center gap-2">
+          <div className="flex gap-2 relative">
+            <button 
+              onClick={() => setActiveDropdown(activeDropdown === 'filters' ? null : 'filters')}
+              className={`px-4 py-2 rounded-lg text-sm flex items-center gap-2 transition-all ${activeDropdown === 'filters' ? 'btn-primary shadow-md' : 'bg-surface-hover border border-border-strong text-foreground hover:bg-surface-active'}`}
+            >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
               </svg>
               Filters
             </button>
-            <button className="px-4 py-2 rounded-lg bg-surface-hover border border-border-strong text-foreground text-sm font-medium hover:bg-surface-active transition-colors">
+            
+            {activeDropdown === 'filters' && (
+              <div className="absolute top-full left-0 mt-2 w-48 bg-surface border border-border-strong rounded-xl shadow-xl z-50 overflow-hidden animate-fade-in-up">
+                <div className="px-3 py-2 border-b border-border-light text-xs font-bold text-text-muted uppercase tracking-wider">Quick Filters</div>
+                <div className="p-1">
+                  {['Top 100 Coins', 'Top Gainers (24h)', 'Top Losers (24h)', 'Recently Added', 'Audited Only'].map(filter => (
+                    <button key={filter} className="w-full text-left px-3 py-2 text-sm text-foreground hover:bg-surface-hover rounded-lg transition-colors" onClick={() => setActiveDropdown(null)}>
+                      {filter}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <button 
+              onClick={() => setActiveDropdown(activeDropdown === 'categories' ? null : 'categories')}
+              className={`px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all ${activeDropdown === 'categories' ? 'btn-primary shadow-md' : 'bg-surface-hover border border-border-strong text-foreground hover:bg-surface-active'}`}
+            >
               Categories
+              <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 transition-transform ${activeDropdown === 'categories' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
             </button>
+
+            {activeDropdown === 'categories' && (
+              <div className="absolute top-full left-24 mt-2 w-48 bg-surface border border-border-strong rounded-xl shadow-xl z-50 overflow-hidden animate-fade-in-up">
+                <div className="px-3 py-2 border-b border-border-light text-xs font-bold text-text-muted uppercase tracking-wider">Sectors</div>
+                <div className="p-1">
+                  {['DeFi', 'Layer 1 / Layer 2', 'AI & Big Data', 'Gaming (GameFi)', 'Memecoins', 'Metaverse'].map(cat => (
+                    <button key={cat} className="w-full text-left px-3 py-2 text-sm text-foreground hover:bg-surface-hover rounded-lg transition-colors" onClick={() => setActiveDropdown(null)}>
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
           <div className="flex gap-2">
             <div className="relative">
