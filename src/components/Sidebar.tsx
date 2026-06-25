@@ -55,7 +55,7 @@ export default function Sidebar() {
 
   useEffect(() => {
     if (pathname === '/') {
-      setActiveMenu(null);
+      setActiveMenu('Home');
     } else {
       const activeItem = sidebarMenu.find(item => pathname.startsWith(item.url) && item.url !== '/');
       if (activeItem) {

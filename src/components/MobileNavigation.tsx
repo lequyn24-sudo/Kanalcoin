@@ -103,7 +103,7 @@ export default function MobileNavigation() {
         <div className="flex-1 overflow-y-auto py-4 px-4 custom-scrollbar">
           <nav className="flex flex-col gap-2">
             {mobileMenu.map((item) => {
-              const isActive = pathname.startsWith(item.url) && item.url !== '/';
+              const isActive = item.url === '/' ? pathname === '/' : pathname.startsWith(item.url);
               return (
                 <Link 
                   key={item.title} 
