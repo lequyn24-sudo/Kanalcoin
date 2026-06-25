@@ -1,7 +1,29 @@
 import Link from "next/link";
 
 export default function KnowledgeSection() {
-  const categories = ["Crypto Fundamentals", "Technology & Ecosystem", "Mining & Consensus"];
+  const featuredArticles = [
+    { 
+      category: "Crypto Fundamentals", 
+      title: "What Is Cryptocurrency", 
+      slug: "what-is-cryptocurrency", 
+      imageUrl: "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?q=80&w=200&auto=format&fit=crop", 
+      time: "5 min read" 
+    },
+    { 
+      category: "Technology & Ecosystem", 
+      title: "What Are Smart Contracts", 
+      slug: "what-are-smart-contracts", 
+      imageUrl: "https://images.unsplash.com/photo-1639762681485-074b7f4ec651?q=80&w=200&auto=format&fit=crop", 
+      time: "6 min read" 
+    },
+    { 
+      category: "Mining & Consensus", 
+      title: "What Is Bitcoin Mining", 
+      slug: "what-is-bitcoin-mining", 
+      imageUrl: "https://images.unsplash.com/photo-1516110833967-0b5716ca1387?q=80&w=200&auto=format&fit=crop", 
+      time: "7 min read" 
+    }
+  ];
 
   return (
     <section className="mb-16 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
@@ -21,10 +43,41 @@ export default function KnowledgeSection() {
         Master the fundamentals of cryptocurrency, trading, and blockchain technology with our comprehensive guides.
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {categories.map((category, idx) => (
-          <Link key={idx} href="/knowledge" className="soft-card p-4 text-center hover:border-[#8AA0E5]/50 transition-colors">
-            <span className="text-sm font-medium text-foreground">{category}</span>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {featuredArticles.map((article, idx) => (
+          <Link 
+            key={idx} 
+            href={`/knowledge/${article.slug}`} 
+            className="soft-card p-5 rounded-2xl border border-border-light hover:border-[#8AA0E5]/50 transition-all duration-300 group hover:shadow-[0_0_30px_rgba(106,133,211,0.15)] bg-surface flex flex-col gap-4"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 rounded-xl bg-surface-hover border border-border-strong flex items-center justify-center shrink-0 group-hover:scale-110 transition-all duration-300 shadow-inner overflow-hidden relative">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={article.imageUrl} alt={article.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+              </div>
+              <div className="flex-1">
+                <div className="text-[10px] font-bold text-[#8AA0E5] uppercase tracking-wider mb-1">
+                  {article.category}
+                </div>
+                <h3 className="text-[15px] font-bold text-foreground group-hover:text-[#8AA0E5] transition-colors leading-snug">
+                  {article.title}
+                </h3>
+              </div>
+            </div>
+            <div className="flex items-center justify-between mt-auto pt-4 border-t border-border-light/50">
+              <span className="text-text-muted text-xs font-medium flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3.5 h-3.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                {article.time}
+              </span>
+              <span className="text-[#8AA0E5] text-xs font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Read guide
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3 h-3">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </span>
+            </div>
           </Link>
         ))}
       </div>
