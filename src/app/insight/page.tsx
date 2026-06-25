@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function InsightPage() {
   const featuredReport = {
@@ -56,7 +57,7 @@ export default function InsightPage() {
       <div className="flex flex-col gap-12 max-w-7xl mx-auto">
         
         {/* Header Section */}
-        <div className="border-b border-border-strong pb-8 mt-4">
+        <ScrollReveal className="border-b border-border-strong pb-8 mt-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-[#8AA0E5] font-bold text-sm mb-6">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -69,15 +70,15 @@ export default function InsightPage() {
           <p className="text-text-muted text-lg max-w-3xl leading-relaxed">
             Premium market reports, on-chain data analysis, and macroeconomic insights from the Kanalcoin Research Team.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Featured Report */}
-        <div>
+        <ScrollReveal delay={0.1}>
           <h2 className="text-2xl font-display font-bold text-[#8AA0E5] mb-6 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
             Featured Report
           </h2>
-          <Link href={`/insight/${featuredReport.slug}`} className="group relative soft-card rounded-3xl overflow-hidden border border-border-light bg-surface flex flex-col lg:flex-row hover:border-[#8AA0E5]/50 hover:shadow-[0_0_40px_rgba(106,133,211,0.15)] transition-all duration-500">
+          <Link href={`/insight/${featuredReport.slug}`} className="group relative soft-card rounded-3xl overflow-hidden border border-border-light bg-surface lg:bg-white/5 lg:backdrop-blur-xl flex flex-col lg:flex-row hover:border-[#8AA0E5]/50 hover:shadow-[0_0_40px_rgba(106,133,211,0.15)] transition-all duration-500">
             <div className="lg:w-3/5 h-[300px] lg:h-[400px] relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -106,16 +107,20 @@ export default function InsightPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </div>
+              </div>
             </div>
           </Link>
-        </div>
+        </ScrollReveal>
 
         {/* Latest Research Grid */}
         <div>
-          <h2 className="text-2xl font-display font-bold text-foreground mb-6 border-b border-border-strong pb-4">Latest Research</h2>
+          <ScrollReveal delay={0.2}>
+            <h2 className="text-2xl font-display font-bold text-foreground mb-6 border-b border-border-strong pb-4">Latest Research</h2>
+          </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {researchArticles.map((article, idx) => (
-              <Link href={`/insight/${article.slug}`} key={idx} className="group soft-card p-0 rounded-2xl border border-border-light bg-surface/80 hover:border-[#8AA0E5]/30 hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden">
+              <ScrollReveal key={idx} delay={0.1 * (idx % 2 + 1)}>
+                <Link href={`/insight/${article.slug}`} className="group soft-card p-0 rounded-2xl border border-border-light bg-surface/80 hover:border-[#8AA0E5]/30 hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden h-full">
                 <div className="w-full h-48 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none"></div>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -144,6 +149,7 @@ export default function InsightPage() {
                   </div>
                 </div>
               </Link>
+              </ScrollReveal>
             ))}
           </div>
         </div>

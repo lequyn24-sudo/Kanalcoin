@@ -6,6 +6,7 @@ import KnowledgeSection from "@/components/KnowledgeSection";
 import ToolsSection from "@/components/ToolsSection";
 import ForumSection from "@/components/ForumSection";
 import CalendarSection from "@/components/CalendarSection";
+import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
 
 export default function Home() {
@@ -105,11 +106,13 @@ export default function Home() {
   ];
 
   return (
-    <main className="w-full flex-1 pb-12">
-      <MarketOverview />
+    <main className="w-full flex-1 pb-12 overflow-x-hidden">
+      <ScrollReveal>
+        <MarketOverview />
+      </ScrollReveal>
 
       {/* Tools & Directory quick links */}
-      <div className="flex flex-wrap gap-4 mb-10 justify-center md:justify-start">
+      <ScrollReveal delay={0.1} className="flex flex-wrap gap-4 mb-10 justify-center md:justify-start">
         <Link href="/tools" className="glass px-4 py-2 rounded-full text-sm font-medium hover:bg-[#8AA0E5]/20 hover:text-[#344A83] dark:hover:text-[#A8B8EF] transition-colors flex items-center shadow-sm active:scale-95 active:opacity-80">
           Crypto Tools
         </Link>
@@ -122,11 +125,11 @@ export default function Home() {
         <Link href="/calendar" className="glass px-4 py-2 rounded-full text-sm font-medium hover:bg-[#8AA0E5]/20 hover:text-[#344A83] dark:hover:text-[#A8B8EF] transition-colors flex items-center shadow-sm active:scale-95 active:opacity-80">
           Events Calendar
         </Link>
-      </div>
+      </ScrollReveal>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Hot News Column */}
-        <div className="lg:col-span-2">
+        <ScrollReveal delay={0.2} className="lg:col-span-2">
           <div className="flex items-center justify-between mb-6 border-b border-border-strong pb-2">
             <h2 className="text-2xl font-display font-bold text-primary-light flex items-center">
               Hot News
@@ -138,10 +141,10 @@ export default function Home() {
               <NewsCard key={news.slug} {...news} />
             ))}
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Right Sidebar */}
-        <div className="lg:col-span-1 flex flex-col gap-6 sticky top-8 self-start z-10">
+        <ScrollReveal delay={0.3} className="lg:col-span-1 flex flex-col gap-6 sticky top-8 self-start z-10">
           <div className="soft-card p-5 flex flex-col shadow-sm">
             <div className="flex items-center justify-between mb-2 border-b border-border-strong pb-4">
               <h2 className="text-lg text-[#8AA0E5] font-display font-bold flex items-center">
@@ -232,20 +235,32 @@ export default function Home() {
               </form>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
 
-      <InsightSection />
+      <ScrollReveal>
+        <InsightSection />
+      </ScrollReveal>
 
       {/* New Demo Sections */}
       <div className="mt-16">
-        <MarketcapCoinsSection />
-        <KnowledgeSection />
-        <ToolsSection />
+        <ScrollReveal>
+          <MarketcapCoinsSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <KnowledgeSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <ToolsSection />
+        </ScrollReveal>
         
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
-          <ForumSection />
-          <CalendarSection />
+          <ScrollReveal>
+            <ForumSection />
+          </ScrollReveal>
+          <ScrollReveal delay={0.2}>
+            <CalendarSection />
+          </ScrollReveal>
         </div>
       </div>
     </main>

@@ -57,7 +57,7 @@
   --soft-card-bg: rgba(255, 255, 255, 0.95);
   --soft-card-border: rgba(255, 255, 255, 0.8);
   --soft-card-hover-border: rgba(138, 160, 229, 0.8);
-  --soft-card-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  --soft-card-shadow: none;
 
   --mesh-image: url('/bg-mesh-tech-light-3d.png');
   --mesh-overlay: rgba(255, 255, 255, 0.2);
@@ -94,7 +94,7 @@
   --soft-card-bg: rgba(18, 26, 29, 0.8);
   --soft-card-border: rgba(255, 255, 255, 0.05);
   --soft-card-hover-border: rgba(138, 160, 229, 0.7);
-  --soft-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --soft-card-shadow: none;
 
   --mesh-image: url('/bg-mesh.png');
   --mesh-overlay: rgba(0, 0, 0, 0.2);
@@ -123,6 +123,7 @@ body {
 
 .soft-card:hover, .group:hover .soft-card, .group:hover > .soft-card {
   border-color: var(--soft-card-hover-border) !important;
+  box-shadow: 0 0 25px rgba(138, 160, 229, 0.15) !important;
 }
 
 @utility floating-container {

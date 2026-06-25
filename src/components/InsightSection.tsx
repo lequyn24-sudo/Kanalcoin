@@ -24,8 +24,8 @@ export default function InsightSection() {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
         {insights.map((item) => (
           <Link key={item.slug} href={`/insight/${item.slug}`} className="group block h-full">
-            <div className="soft-card h-full p-4 flex items-center justify-center text-center transition-all duration-300 group-hover:-translate-y-1 group-hover:bg-surface-hover group-hover:border-primary-light/50 group-hover:shadow-[0_0_20px_rgba(106,133,211,0.3)]">
-              <span className="text-sm font-bold text-text-muted group-hover:text-foreground transition-colors">
+            <div className="soft-card h-full p-4 flex items-center justify-center text-center transition-all duration-300 group-hover:-translate-y-1 group-hover:bg-surface-hover group-hover:border-[#8AA0E5]/50">
+              <span className="text-sm font-bold text-text-muted group-hover:text-[#8AA0E5] transition-colors">
                 {item.title}
               </span>
             </div>
