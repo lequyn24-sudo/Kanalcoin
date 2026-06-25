@@ -44,6 +44,7 @@ const sidebarMenu: MenuItem[] = [
 
 export default function Sidebar() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -169,8 +170,8 @@ export default function Sidebar() {
           <ThemeToggle />
         </div>
 
-        {/* Mock Login State Toggle (For Demo) */}
-        {activeMenu === "Demo" ? null : (
+        {/* Login State Toggle */}
+        {isLoggedIn ? (
           <div className="w-full relative group">
             {/* User Profile Box */}
             <div className="flex items-center justify-between p-3 bg-surface-hover rounded-[20px] border border-border-light cursor-pointer hover:border-[#8AA0E5]/50 hover:shadow-md hover:shadow-[#8AA0E5]/10 transition-all">
@@ -188,20 +189,48 @@ export default function Sidebar() {
                   </div>
                 </div>
               </div>
-              <button className="p-1.5 text-text-muted hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors shrink-0" title="Log out">
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsLoggedIn(false);
+                }}
+                className="p-1.5 text-text-muted hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors shrink-0" 
+                title="Log out"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
                 </svg>
               </button>
             </div>
           </div>
+        ) : (
+          <div className="w-full relative group">
+            <button 
+              onClick={() => setIsLoggedIn(true)}
+              className="w-full flex items-center justify-center gap-2 p-3 bg-surface-hover rounded-[20px] border border-border-light hover:border-[#8AA0E5]/50 hover:bg-[#8AA0E5]/5 transition-all text-[13px] font-bold text-foreground"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-[#8AA0E5]">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+              </svg>
+              Sign In / Register
+            </button>
+          </div>
         )}
 
-        <Link href="/publishing" className="w-full relative overflow-hidden group bg-gradient-to-r from-[#8AA0E5] to-[#344A83] hover:from-[#A8B8EF] hover:to-[#6A85D3] border border-white/20 py-3 rounded-[20px] text-sm font-bold text-center text-white hover:-translate-y-0.5 shadow-[0_4px_15px_rgba(106,133,211,0.2)] hover:shadow-[0_6px_20px_rgba(106,133,211,0.3)] transition-all">
+        <button 
+          onClick={() => {
+            if (!isLoggedIn) {
+              alert("Please Sign In to access the Publishing Portal!");
+            } else {
+              window.location.href = "/publishing";
+            }
+          }}
+          className="w-full relative overflow-hidden group bg-gradient-to-r from-[#8AA0E5] to-[#344A83] hover:from-[#A8B8EF] hover:to-[#6A85D3] border border-white/20 py-3 rounded-[20px] text-sm font-bold text-center text-white hover:-translate-y-0.5 shadow-[0_4px_15px_rgba(106,133,211,0.2)] hover:shadow-[0_6px_20px_rgba(106,133,211,0.3)] transition-all block"
+        >
           <span className="relative z-10 flex items-center justify-center gap-2">
             <span>+</span> GET PUBLISHING
           </span>
-        </Link>
+        </button>
       </div>
     </aside>
   );
