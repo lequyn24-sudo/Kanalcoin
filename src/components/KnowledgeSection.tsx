@@ -48,35 +48,34 @@ export default function KnowledgeSection() {
           <Link 
             key={idx} 
             href={`/knowledge/${article.slug}`} 
-            className="soft-card p-5 rounded-2xl border border-border-light hover:border-[#8AA0E5]/50 transition-all duration-300 group hover:shadow-[0_0_30px_rgba(106,133,211,0.15)] bg-surface flex flex-col gap-4"
+            className="soft-card p-4 rounded-2xl border border-border-light hover:border-[#8AA0E5]/50 transition-all duration-300 group hover:shadow-[0_0_30px_rgba(106,133,211,0.15)] bg-surface flex flex-row items-center gap-4"
           >
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-xl bg-surface-hover border border-border-strong flex items-center justify-center shrink-0 group-hover:scale-110 transition-all duration-300 shadow-inner overflow-hidden relative">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={article.imageUrl} alt={article.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
-              </div>
-              <div className="flex-1">
-                <div className="text-[10px] font-bold text-[#8AA0E5] uppercase tracking-wider mb-1">
-                  {article.category}
-                </div>
-                <h3 className="text-[15px] font-bold text-foreground group-hover:text-[#8AA0E5] transition-colors leading-snug">
-                  {article.title}
-                </h3>
-              </div>
+            <div className="w-24 h-24 rounded-xl bg-surface-hover border border-border-strong flex items-center justify-center shrink-0 shadow-inner overflow-hidden relative">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={article.imageUrl} alt={article.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" />
             </div>
-            <div className="flex items-center justify-between mt-auto pt-4 border-t border-border-light/50">
-              <span className="text-text-muted text-xs font-medium flex items-center gap-1.5">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3.5 h-3.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-                {article.time}
-              </span>
-              <span className="text-[#8AA0E5] text-xs font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                Read guide
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3 h-3">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
-              </span>
+            <div className="flex-1 flex flex-col justify-center">
+              <div className="text-[10px] font-bold text-[#8AA0E5] uppercase tracking-wider mb-1.5">
+                {article.category}
+              </div>
+              <h3 className="text-[14px] font-bold text-foreground group-hover:text-[#8AA0E5] transition-colors leading-snug mb-3 line-clamp-2">
+                {article.title}
+              </h3>
+              
+              <div className="flex items-center justify-between mt-auto">
+                <span className="text-text-muted text-xs font-medium flex items-center gap-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3.5 h-3.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                  {article.time}
+                </span>
+                <span className="text-[#8AA0E5] text-xs font-bold flex items-center gap-1 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all">
+                  Read
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3 h-3">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </span>
+              </div>
             </div>
           </Link>
         ))}
