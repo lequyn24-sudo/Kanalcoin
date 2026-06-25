@@ -187,7 +187,7 @@ export default function Home() {
             </div>
             
             <div className="flex flex-col gap-4">
-              {mockMostRead.slice(0, 3).map((item) => (
+              {mockMostRead.slice(0, 5).map((item) => (
                 <Link key={item.id} href={`/news/trending-${item.id}`} className="group flex items-start gap-4">
                   <div className="text-3xl font-display font-black text-foreground/10 group-hover:text-[#8AA0E5]/40 transition-colors italic w-6 text-center">
                     {item.id}
@@ -200,6 +200,47 @@ export default function Home() {
                   </div>
                 </Link>
               ))}
+            </div>
+          </div>
+
+          {/* Quick Converter */}
+          <div className="soft-card p-5 flex flex-col flex-1 shadow-sm border border-border-light relative overflow-hidden group">
+            {/* Background element */}
+            <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-[#8AA0E5]/10 rounded-full blur-[40px] pointer-events-none group-hover:bg-[#8AA0E5]/20 transition-colors duration-500"></div>
+
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg text-[#8AA0E5] font-display font-bold flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                </svg>
+                Quick Convert
+              </h2>
+            </div>
+            
+            <div className="flex-1 flex flex-col justify-center gap-3 relative z-10">
+              <div className="flex items-center bg-surface-hover border border-border-strong rounded-xl p-3 focus-within:border-[#8AA0E5]/50 transition-colors">
+                <input type="number" defaultValue="1" className="bg-transparent text-foreground text-xl font-bold w-full focus:outline-none" />
+                <div className="flex items-center gap-2 bg-surface px-3 py-1.5 rounded-lg border border-border-light shrink-0 shadow-sm">
+                  <div className="w-5 h-5 bg-[#F7931A] rounded-full flex items-center justify-center text-white text-[10px] font-bold shadow-inner">B</div>
+                  <span className="text-sm font-bold text-foreground">BTC</span>
+                </div>
+              </div>
+
+              <div className="flex justify-center -my-3 relative z-20">
+                <button className="w-9 h-9 rounded-full bg-surface border border-border-strong flex items-center justify-center text-[#8AA0E5] hover:bg-surface-active hover:scale-110 hover:border-[#8AA0E5]/50 transition-all shadow-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
+                  </svg>
+                </button>
+              </div>
+
+              <div className="flex items-center bg-surface-hover border border-border-strong rounded-xl p-3">
+                <input type="text" readOnly value="64,250.00" className="bg-transparent text-foreground text-xl font-bold w-full focus:outline-none" />
+                <div className="flex items-center gap-2 bg-surface px-3 py-1.5 rounded-lg border border-border-light shrink-0 shadow-sm">
+                  <div className="w-5 h-5 bg-[#26A17B] rounded-full flex items-center justify-center text-white text-[10px] font-bold shadow-inner">$</div>
+                  <span className="text-sm font-bold text-foreground">USD</span>
+                </div>
+              </div>
             </div>
           </div>
 
