@@ -1,6 +1,5 @@
 import NewsCard from "@/components/NewsCard";
 import MarketOverview from "@/components/MarketOverview";
-import InsightSection from "@/components/InsightSection";
 import MarketcapCoinsSection from "@/components/MarketcapCoinsSection";
 import KnowledgeSection from "@/components/KnowledgeSection";
 import ToolsSection from "@/components/ToolsSection";
@@ -265,10 +264,6 @@ export default function Home() {
           </div>
         </ScrollReveal>
       </div>
-
-      <ScrollReveal>
-        <InsightSection />
-      </ScrollReveal>
 
       {/* New Demo Sections */}
       <div className="mt-16">
