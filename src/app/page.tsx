@@ -188,7 +188,7 @@ export default function Home() {
                     {item.id}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-[13px] font-bold text-text-muted group-hover:text-[#8AA0E5] transition-colors line-clamp-1 leading-snug mb-0.5">
+                    <h3 className="text-[13px] font-bold text-text-muted group-hover:text-[#8AA0E5] dark:group-hover:text-[#A8B8EF] transition-colors line-clamp-1 leading-snug mb-0.5">
                       {item.title}
                     </h3>
                     <div className="text-[10px] text-text-dim font-medium uppercase tracking-wider">{item.views}</div>
