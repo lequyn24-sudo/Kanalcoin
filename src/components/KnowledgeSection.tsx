@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function KnowledgeSection() {
-  const categories = ["Crypto Basics", "DeFi & Web3", "Trading 101", "Security", "NFTs & Gaming", "Blockchain Tech"];
+  const categories = ["Crypto Fundamentals", "Technology & Ecosystem", "Mining & Consensus"];
 
   return (
     <section className="mb-16 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
@@ -21,9 +21,9 @@ export default function KnowledgeSection() {
         Master the fundamentals of cryptocurrency, trading, and blockchain technology with our comprehensive guides.
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {categories.map((category, idx) => (
-          <Link key={idx} href={`/knowledge/${category.toLowerCase().replace(/\s+/g, '-')}`} className="soft-card p-4 text-center hover:border-[#8AA0E5]/50 transition-colors">
+          <Link key={idx} href="/knowledge" className="soft-card p-4 text-center hover:border-[#8AA0E5]/50 transition-colors">
             <span className="text-sm font-medium text-foreground">{category}</span>
           </Link>
         ))}
