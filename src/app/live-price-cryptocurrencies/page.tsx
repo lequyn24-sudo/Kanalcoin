@@ -110,7 +110,7 @@ export default function MarketcapCoinsPage() {
                   <th className="p-4 text-right pr-6 whitespace-nowrap">Last 7 Days</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5">
+              <tbody className="divide-y divide-border-light">
                 {mockCoins.map((coin) => (
                   <tr key={coin.symbol} className="hover:bg-white/[0.02] transition-colors group cursor-pointer">
                     <td className="p-4 pl-6 text-text-muted text-sm font-medium w-12">{coin.rank}</td>

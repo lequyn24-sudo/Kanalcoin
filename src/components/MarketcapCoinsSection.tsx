@@ -36,7 +36,7 @@ export default function MarketcapCoinsSection() {
                 <th className="px-6 py-4 font-semibold text-center">Action</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/5">
+            <tbody className="divide-y divide-border-light">
               {mockCoins.map((coin) => (
                 <tr key={coin.id} className="hover:bg-white/[0.02] transition-colors group">
                   <td className="px-6 py-4">
