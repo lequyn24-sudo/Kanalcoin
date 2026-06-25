@@ -144,7 +144,7 @@ export default function Home() {
           Marketcap Coins
         </Link>
         <Link href="/knowledge" className="glass px-4 py-2 rounded-full text-sm font-medium hover:bg-[#8AA0E5]/20 hover:text-[#344A83] dark:hover:text-[#A8B8EF] transition-colors flex items-center shadow-sm active:scale-95 active:opacity-80">
-          <span>🎓</span> <span className="ml-2">Knowledge</span>
+          Knowledge
         </Link>
         <Link href="/calendar" className="glass px-4 py-2 rounded-full text-sm font-medium hover:bg-[#8AA0E5]/20 hover:text-[#344A83] dark:hover:text-[#A8B8EF] transition-colors flex items-center shadow-sm active:scale-95 active:opacity-80">
           Events Calendar
