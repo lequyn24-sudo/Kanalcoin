@@ -195,9 +195,9 @@ export default function PublishingPage() {
                       onChange={(e) => setFormData({...formData, type: e.target.value})}
                       className="w-full bg-black/5 dark:bg-black/40 border border-border-strong rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer"
                     >
-                      <option value="Press Release">Press Release ($299)</option>
-                      <option value="Sponsored Content">Sponsored Content ($599)</option>
-                      <option value="Custom Partnership">Custom Partnership (Let's Talk)</option>
+                      <option className="bg-surface text-foreground" value="Press Release">Press Release ($299)</option>
+                      <option className="bg-surface text-foreground" value="Sponsored Content">Sponsored Content ($599)</option>
+                      <option className="bg-surface text-foreground" value="Custom Partnership">Custom Partnership (Let's Talk)</option>
                     </select>
                   </div>
                 </div>
