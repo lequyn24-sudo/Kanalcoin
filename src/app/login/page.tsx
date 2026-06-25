@@ -62,14 +62,32 @@ export default function LoginPage() {
           <h2 className="text-2xl font-bold text-foreground mb-2 md:hidden">Welcome Back</h2>
           <p className="text-text-muted text-sm mb-6 md:hidden">Sign in to unlock personalized features.</p>
           
-          <button 
-            onClick={handleConnectWallet}
-            disabled={isSubmitting}
-            className="w-full flex items-center justify-center gap-3 bg-surface-hover border border-border-strong hover:border-[#F6851B]/50 hover:bg-[#F6851B]/5 py-3.5 rounded-xl font-bold text-sm text-foreground transition-all mb-6 group disabled:opacity-50"
-          >
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask" className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            Connect Web3 Wallet
-          </button>
+          <div className="flex items-center gap-3 mb-6">
+            <button 
+              onClick={handleConnectWallet}
+              disabled={isSubmitting}
+              className="flex-1 flex items-center justify-center bg-surface-hover border border-border-strong hover:border-white/20 hover:bg-white/5 py-3.5 rounded-xl transition-all group disabled:opacity-50"
+              title="Sign in with Google"
+            >
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            </button>
+            <button 
+              onClick={handleConnectWallet}
+              disabled={isSubmitting}
+              className="flex-1 flex items-center justify-center bg-surface-hover border border-border-strong hover:border-[#1877F2]/50 hover:bg-[#1877F2]/5 py-3.5 rounded-xl transition-all group disabled:opacity-50"
+              title="Sign in with Facebook"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 fill-[#1877F2] group-hover:scale-110 transition-transform"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </button>
+            <button 
+              onClick={handleConnectWallet}
+              disabled={isSubmitting}
+              className="flex-1 flex items-center justify-center bg-surface-hover border border-border-strong hover:border-[#F6851B]/50 hover:bg-[#F6851B]/5 py-3.5 rounded-xl transition-all group disabled:opacity-50"
+              title="Connect Web3 Wallet"
+            >
+              <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask" className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            </button>
+          </div>
 
           <div className="flex items-center gap-4 mb-6">
             <div className="h-px bg-border-light flex-1"></div>
