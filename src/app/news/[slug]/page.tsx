@@ -2,6 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import BackButton from '@/components/BackButton';
+import NewsCard from '@/components/NewsCard';
+import { mockNews } from '@/data/mockNews';
 
 export default async function NewsArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
@@ -127,6 +129,19 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
           <article className="prose dark:prose-invert prose-lg max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-primary-light hover:prose-a:text-foreground prose-img:rounded-xl">
             {generateContent()}
           </article>
+        </div>
+
+        {/* Suggested Articles */}
+        <div className="mt-16 pt-12 border-t border-border-strong">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-2xl font-display font-bold text-foreground">Suggested Reads</h2>
+            <Link href="/news" className="text-sm font-semibold text-[#8AA0E5] hover:text-foreground transition-colors">More News &raquo;</Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {mockNews.slice(0, 3).map((news, idx) => (
+              <NewsCard key={idx} {...news} />
+            ))}
+          </div>
         </div>
 
       </div>

@@ -4,7 +4,7 @@ import InsightSection from "@/components/InsightSection";
 import MarketcapCoinsSection from "@/components/MarketcapCoinsSection";
 import KnowledgeSection from "@/components/KnowledgeSection";
 import ToolsSection from "@/components/ToolsSection";
-import ForumSection from "@/components/ForumSection";
+import LatestNewsSection from "@/components/LatestNewsSection";
 import CalendarSection from "@/components/CalendarSection";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
@@ -256,7 +256,7 @@ export default function Home() {
         
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
           <ScrollReveal>
-            <ForumSection />
+            <LatestNewsSection />
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <CalendarSection />

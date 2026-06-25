@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import BackButton from '@/components/BackButton';
+import NewsCard from '@/components/NewsCard';
+import { mockNews } from '@/data/mockNews';
 
 export default async function InsightReportPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
@@ -115,6 +117,20 @@ export default async function InsightReportPage({ params }: { params: Promise<{ 
           </div>
 
         </div>
+
+        {/* Suggested Articles */}
+        <div className="mt-16 pt-12 border-t border-border-strong">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-2xl font-display font-bold text-foreground">Suggested Insights</h2>
+            <Link href="/insight" className="text-sm font-semibold text-[#8AA0E5] hover:text-foreground transition-colors">More Insights &raquo;</Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {mockNews.slice(3, 6).map((news, idx) => (
+              <NewsCard key={idx} {...news} category="Market Report" />
+            ))}
+          </div>
+        </div>
+
       </div>
     </div>
   );

@@ -7,17 +7,7 @@ import { mockNews } from '@/data/mockNews';
 
 
 export default function SponsoredPage() {
-  const categories = [
-    "All", "Bitcoin", "Cryptocurrency", "Stablecoin", "Blockchain Industry", 
-    "Regulator", "Market Exchange", "Fintech", "Metaverse", "Web3", "Crypto Crime", "People"
-  ];
-
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const pageData = [...mockNews].slice(15, 60);
-  const filteredNews = activeCategory === "All" 
-    ? pageData 
-    : pageData.filter(n => n.category === activeCategory);
+  const filteredNews = [...mockNews].slice(15, 60).map(n => ({...n, category: "Sponsored"}));
 
   return (
     <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar pb-20">
@@ -45,23 +35,6 @@ export default function SponsoredPage() {
             </div>
           </div>
         </div>
-
-        {/* Categories Filter - Horizontal Scrollable */}
-          <div className="flex overflow-x-auto gap-2 pb-4 pt-1 custom-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
-            {categories.map((cat, idx) => (
-              <button 
-                key={idx}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap shrink-0 ${
-                  activeCategory === cat 
-                    ? 'btn-primary text-white shadow-sm' 
-                    : 'bg-surface-hover text-text-muted hover:text-white hover:bg-[#2A363B]'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
 
         {/* News Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
