@@ -23,6 +23,7 @@ const mobileMenu: MenuItem[] = [
   { title: "Sponsored", icon: "⭐", url: "/sponsored" },
   { title: "Calendar", icon: "📅", url: "/calendar" },
   { title: "Forum", icon: "💬", url: "/forum" },
+  { title: "About & Legal", icon: "📜", url: "/about" },
 ];
 
 export default function MobileNavigation() {

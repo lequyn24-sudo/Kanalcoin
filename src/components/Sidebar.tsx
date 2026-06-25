@@ -35,6 +35,11 @@ const sidebarMenu: MenuItem[] = [
     icon: "📅", 
     url: "/calendar"
   },
+  { 
+    title: "About & Legal", 
+    icon: "📜", 
+    url: "/about"
+  },
 ];
 
 export default function Sidebar() {
