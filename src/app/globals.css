@@ -1,26 +1,212 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-exo-2), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-orbitron), ui-sans-serif, system-ui, sans-serif;
+
+  /* LOGO BRAND COLORS */
+  --color-primary: var(--brand-primary);
+  --color-primary-light: var(--brand-primary-light);
+  --color-primary-dark: var(--brand-primary-dark);
+  
+  --color-accent: #00FFAA; /* Mint Green accent from reference for some small dots, if needed */
+  
+  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.05);
+
+  /* SEMANTIC COLORS (LOCKED FOR DARK MODE) */
+  --color-background: var(--bg-primary);
+  --color-surface: var(--bg-surface);
+  --color-surface-hover: var(--bg-surface-hover);
+  --color-surface-active: var(--bg-surface-active);
+  --color-text-muted: var(--text-muted);
+  --color-text-dim: var(--text-dim);
+  --color-border-light: var(--border-light);
+  --color-border-strong: var(--border-strong);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  
+  /* Semantic Variables - Light Mode */
+  --bg-primary: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f1f5f9;
+  --bg-surface-active: #e2e8f0;
+  /* AAA Compliant Text Colors for Light Mode */
+  --text-muted: #334155; /* Slate 700 - Contrast 10.9:1 */
+  --text-dim: #475569; /* Slate 600 - Contrast 7.4:1 */
+  
+  /* AAA Compliant Brand Colors for Light Mode */
+  --brand-primary: #1C2D56;
+  --brand-primary-light: #344A83; /* Contrast 7.2:1 */
+  --brand-primary-dark: #0f172a;
+  --border-light: rgba(0, 0, 0, 0.05);
+  --border-strong: rgba(0, 0, 0, 0.1);
+
+  /* floating container light */
+  --floating-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.5) 100%);
+  --floating-blur: blur(100px);
+  --floating-border-top: rgba(255, 255, 255, 1);
+  --floating-border-left: rgba(255, 255, 255, 0.9);
+  --floating-shadow: 0 40px 80px rgba(0, 0, 0, 0.05), inset 0 2px 10px rgba(255, 255, 255, 0.5);
+  
+  --soft-card-bg: rgba(255, 255, 255, 0.95);
+  --soft-card-border: rgba(255, 255, 255, 0.8);
+  --soft-card-hover-border: rgba(138, 160, 229, 0.8);
+  --soft-card-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+
+  --mesh-image: url('/bg-mesh-tech-light-3d.png');
+  --mesh-overlay: rgba(255, 255, 255, 0.2);
+  --mesh-tint: #8AA0E5; /* Ice Blue tint */
+  --mesh-filter: contrast(1.1); /* Removed blur! */
+}
+
+
+
+.dark {
+  --background: #06090c;
+  --foreground: #F3F4F6;
+  
+  --bg-primary: #06090c;
+  --bg-surface: #121A1D;
+  --bg-surface-hover: #1A262B;
+  --bg-surface-active: #1C2D56;
+  --text-muted: #A5B4BA;
+  --text-dim: #7B929B;
+
+  /* Original Brand Colors for Dark Mode */
+  --brand-primary: #344A83;
+  --brand-primary-light: #8AA0E5;
+  --brand-primary-dark: #1C2D56;
+  --border-light: rgba(255, 255, 255, 0.05);
+  --border-strong: rgba(255, 255, 255, 0.1);
+
+  --floating-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(0, 0, 0, 0.6) 100%);
+  --floating-blur: blur(70px) saturate(150%);
+  --floating-border-top: rgba(255, 255, 255, 0.45);
+  --floating-border-left: rgba(255, 255, 255, 0.3);
+  --floating-shadow: 0 40px 80px rgba(0, 0, 0, 0.9), inset 0 2px 10px rgba(255, 255, 255, 0.15);
+
+  --soft-card-bg: rgba(18, 26, 29, 0.8);
+  --soft-card-border: rgba(255, 255, 255, 0.05);
+  --soft-card-hover-border: rgba(138, 160, 229, 0.7);
+  --soft-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  --mesh-image: url('/bg-mesh.png');
+  --mesh-overlay: rgba(0, 0, 0, 0.2);
+  --mesh-tint: transparent; /* No tint in dark mode */
+  --mesh-filter: none;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
+
+/* --- FLOATING DASHBOARD UTILITIES --- */
+@utility soft-card {
+  background-color: var(--soft-card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 32px;
+  border: 1px solid var(--soft-card-border);
+  box-shadow: var(--soft-card-shadow);
+}
+
+.soft-card {
+  transition: all 0.3s ease !important;
+}
+
+.soft-card:hover, .group:hover .soft-card, .group:hover > .soft-card {
+  border-color: var(--soft-card-hover-border) !important;
+}
+
+@utility floating-container {
+  background: var(--floating-bg);
+  backdrop-filter: var(--floating-blur);
+  -webkit-backdrop-filter: var(--floating-blur);
+  border-radius: 40px;
+  border: 1px solid var(--border-strong);
+  border-top: 2px solid var(--floating-border-top);
+  border-left: 2px solid var(--floating-border-left);
+  box-shadow: var(--floating-shadow);
+}
+
+/* Custom Scrollbar */
+.custom.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Marquee Animation */
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Custom Gradients to force Light/Dark mode bypassing Tailwind v4 media query */
+
+.academy-bg {
+  background: linear-gradient(to bottom right, rgba(239, 246, 255, 0.8), #ffffff);
+}
+.dark .academy-bg {
+  background: linear-gradient(to bottom right, rgba(28, 45, 86, 0.4), #121A1D);
+}
+
+.sidebar-active-bg {
+  background: linear-gradient(135deg, rgba(219, 234, 254, 0.5), rgba(191, 219, 254, 0.5));
+}
+.dark .sidebar-active-bg {
+  background: linear-gradient(135deg, rgba(106, 133, 211, 0.15) 0%, rgba(52, 74, 131, 0.4) 100%);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* --- TECH GRADIENT BADGES --- */
+@utility tech-badge {
+  background: linear-gradient(135deg, #6A85D3 0%, #344A83 100%);
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 4px 15px rgba(106,133,211,0.4), inset 0 1px 2px rgba(255,255,255,0.3);
+  color: white;
+}
+
+/* --- PRIMARY NEON BUTTONS --- */
+@utility btn-primary {
+  background: linear-gradient(to right, #8AA0E5, #344A83);
+  color: white;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(106, 133, 211, 0.2);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: linear-gradient(to right, #A8B8EF, #6A85D3);
+    border-color: white;
+    box-shadow: 0 6px 20px rgba(106, 133, 211, 0.3);
+    transform: translateY(-2px);
+  }
+}
+
+
