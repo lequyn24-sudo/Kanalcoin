@@ -79,7 +79,7 @@ export default function InsightPage() {
             Featured Report
           </h2>
           <Link href={`/insight/${featuredReport.slug}`} className="group relative soft-card rounded-3xl overflow-hidden border border-border-light bg-surface lg:bg-white/5 lg:backdrop-blur-xl flex flex-col lg:flex-row hover:border-[#8AA0E5]/50 hover:shadow-[0_0_40px_rgba(106,133,211,0.15)] transition-all duration-500">
-            <div className="lg:w-3/5 h-[300px] lg:h-[400px] relative overflow-hidden">
+            <div className="lg:w-3/5 h-[300px] lg:h-auto lg:min-h-[400px] relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={featuredReport.imageUrl} alt={featuredReport.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
