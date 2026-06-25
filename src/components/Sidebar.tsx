@@ -218,20 +218,14 @@ export default function Sidebar() {
           </div>
         )}
 
-        <button 
-          onClick={() => {
-            if (!isLoggedIn) {
-              alert("Please Sign In to access the Publishing Portal!");
-            } else {
-              window.location.href = "/publishing";
-            }
-          }}
+        <Link 
+          href="/publishing"
           className="w-full relative overflow-hidden group bg-gradient-to-r from-[#8AA0E5] to-[#344A83] hover:from-[#A8B8EF] hover:to-[#6A85D3] border border-white/20 py-3 rounded-[20px] text-sm font-bold text-center text-white hover:-translate-y-0.5 shadow-[0_4px_15px_rgba(106,133,211,0.2)] hover:shadow-[0_6px_20px_rgba(106,133,211,0.3)] transition-all block"
         >
           <span className="relative z-10 flex items-center justify-center gap-2">
             <span>+</span> GET PUBLISHING
           </span>
-        </button>
+        </Link>
       </div>
     </aside>
   );
