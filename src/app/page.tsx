@@ -8,6 +8,7 @@ import LatestNewsSection from "@/components/LatestNewsSection";
 import CalendarSection from "@/components/CalendarSection";
 import ScrollReveal from "@/components/ScrollReveal";
 import QuickConverter from "@/components/QuickConverter";
+import TopExchangesSection from "@/components/TopExchangesSection";
 import Link from "next/link";
 
 export default function Home() {
@@ -274,6 +275,11 @@ export default function Home() {
         <ScrollReveal>
           <MarketcapCoinsSection />
         </ScrollReveal>
+        
+        <ScrollReveal>
+          <TopExchangesSection />
+        </ScrollReveal>
+
         <ScrollReveal>
           <KnowledgeSection />
         </ScrollReveal>

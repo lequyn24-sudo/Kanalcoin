@@ -15,6 +15,11 @@ type MenuItem = {
 };
 
 const sidebarMenu: MenuItem[] = [
+  { 
+    title: "Home", 
+    icon: "🏠", 
+    url: "/"
+  },
   {
     title: "News",
     icon: "📰",

@@ -14,6 +14,7 @@ type MenuItem = {
 };
 
 const mobileMenu: MenuItem[] = [
+  { title: "Home", icon: "🏠", url: "/" },
   { title: "News", icon: "📰", url: "/news" },
   { title: "Insight Hub", icon: "💡", url: "/insight" },
   { title: "Marketcap Coins", icon: "📊", url: "/live-price-cryptocurrencies" },
