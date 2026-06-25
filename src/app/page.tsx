@@ -102,6 +102,16 @@ export default function Home() {
       id: 3,
       title: "Federal Reserve Hints at Possible Rate Cuts in Q3",
       views: "85K views"
+    },
+    {
+      id: 4,
+      title: "Vitalik Buterin Proposes New Gas Fee Model for Ethereum",
+      views: "72K views"
+    },
+    {
+      id: 5,
+      title: "Top Analysts Predict Bitcoin to Break $100K by Year End",
+      views: "68K views"
     }
   ];
 
